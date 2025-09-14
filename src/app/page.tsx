@@ -1,12 +1,13 @@
 import Image from "next/image";
+import Navbar from "../components/ui/Navbar";
 
 export default function Home() {
   return (
-    <div className="flex items-center justify-center min-h-screen mx-auto w-full">
-      <div className="text-center">
-        <h1>This is My NextJS App</h1>
-        <Image src="/next.svg" alt="Next.js logo" width={180} height={40} />
-      </div>
-    </div>
+    <>
+      <Navbar />
+      <main className="min-h-screen dark:bg-gray-900 flex flex-col w-full items-center justify-center mx-auto">
+        Hello
+      </main>
+    </>
   );
 }
