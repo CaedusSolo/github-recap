@@ -7,9 +7,6 @@ export default function Navbar() {
     <navbar className="fixed inset-x-0 p-4 z-50 top-0 dark:bg-black backdrop-blur-md">
       <div className="mx-auto px-4 max-w-7xl sm:px-6">
         <div className="flex h-14 items-center justify-between">
-          <Link href="https://google.com">
-            <Image src="/next.svg" alt="Navbar logo" width={100} height={80} />
-          </Link>
           <div className="hidden md:flex items-center space-x-8 text-sm sm:text-base lg:text-lg font-medium">
             <Link
               href="#about"
