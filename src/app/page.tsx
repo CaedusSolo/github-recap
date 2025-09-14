@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Navbar from "../components/ui/Navbar";
+import Footer from "../components/ui/Footer";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <main className="min-h-screen dark:bg-gray-900 flex flex-col w-full items-center justify-center mx-auto">
         Hello
       </main>
+      <Footer />
     </>
   );
 }
