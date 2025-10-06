@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@octokit/rest": "^22.0.0",
+    "axios": "^1.12.2",
     "framer-motion": "^12.23.12",
     "next": "15.5.2",
     "next-auth": "^4.24.11",
