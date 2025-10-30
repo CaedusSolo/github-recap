@@ -57,12 +57,10 @@ export default function PublicRecap({ username }: { username: string }) {
 
     // 4. Return the cleanup function
     return () => {
-      // Abort any pending request when dependencies change or component unmounts
       controller.abort();
     };
   }, [username]);
 
-  // UI rendering based on state
   if (error)
     return (
       <p className="text-xl p-4 text-center text-red-500 font-medium bg-red-50 rounded-lg shadow-sm">
