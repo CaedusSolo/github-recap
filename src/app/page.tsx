@@ -4,6 +4,7 @@ import Navbar from "../components/ui/Navbar";
 import Footer from "../components/ui/Footer";
 import Landing from "../components/ui/Landing";
 import RecapPage from "./recap/page";
+import Link from "next/link";
 import { useSession } from "next-auth/react";
 
 export default function Home() {
