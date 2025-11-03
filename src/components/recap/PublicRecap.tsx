@@ -15,47 +15,41 @@ export default function PublicRecap({ username }: { username: string }) {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    // 1. Create an AbortController for cleanup
     const controller = new AbortController();
     const signal = controller.signal;
 
     async function loadProfile() {
-      // Reset state and set loading flag
       setError(null);
       setProfile(null);
       setIsLoading(true);
 
       try {
+        // call api route
         const res = await axios.get("/api/github/public", {
           params: { username },
-          // 2. Pass the signal to cancel the request
           signal: signal,
         });
 
         setProfile(res.data);
       } catch (err: any) {
-        // 3. Ignore cancellation errors (they are expected on cleanup)
         if (axios.isCancel(err)) {
           console.log("Fetch request cancelled by cleanup.");
         } else {
           setError(err.response?.data?.error || err.message);
         }
       } finally {
-        // Only stop loading if the request wasn't cancelled
         if (!signal.aborted) {
           setIsLoading(false);
         }
       }
     }
 
-    // Call conditionally only if username is present
     if (username) {
       loadProfile();
     } else {
       setIsLoading(false);
     }
 
-    // 4. Return the cleanup function
     return () => {
       controller.abort();
     };
