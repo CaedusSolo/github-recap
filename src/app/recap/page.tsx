@@ -1,3 +1,4 @@
+// fetching private data (user logged in)
 "use client";
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";

@@ -30,7 +30,6 @@ export async function GET(req: Request) {
     console.log("Successfully fetched user data for:", username);
     return NextResponse.json(data);
   } catch (error: any) {
-    // Use AxiosError to extract specific status codes from GitHub
     if (axios.isAxiosError(error)) {
       const axiosError = error as AxiosError;
 
