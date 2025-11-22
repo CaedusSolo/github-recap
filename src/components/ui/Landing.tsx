@@ -41,7 +41,7 @@ export default function Landing() {
           className={`rounded-r-md px-6 py-3 font-semibold transition duration-150 
             ${
               isInputValid
-                ? "bg-purple-600 text-white hover:bg-purple-700 focus:ring-purple-500"
+                ? "bg-purple-600 text-white cursor-pointer hover:bg-purple-700 focus:ring-purple-500"
                 : "bg-gray-600 text-gray-400 cursor-not-allowed"
             } focus:outline-none focus:ring-2 focus:ring-offset-1 dark:focus:ring-offset-gray-900`}
           onClick={handleUnwrap}
