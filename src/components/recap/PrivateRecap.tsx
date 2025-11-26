@@ -9,4 +9,8 @@ interface PrivateProfile {
 
 // call github api through backend.
 
-export default function PrivateRecap() {}
+export default function PrivateRecap() {
+  const [profile, setProfile] = useState<PrivateProfile | null>(null);
+  const [loading, setLoading] = useState<Boolean>(false);
+  const [error, setError] = useState<string | null>("");
+}

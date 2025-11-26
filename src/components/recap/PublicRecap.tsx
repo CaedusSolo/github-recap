@@ -1,11 +1,14 @@
 "use client";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Image from "next/image";
 
 interface GithubProfile {
   name: string;
   followers: number;
   public_repos: number;
+  following: number;
+  avatar_url: string;
   login: string;
 }
 
@@ -69,23 +72,34 @@ export default function PublicRecap({ username }: { username: string }) {
     );
 
   return (
-    <div className="max-w-md w-full p-6 bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700">
-      <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4 border-b pb-2">
-        {profile.name || profile.login}'s GitHub Recap
-      </h1>
-      <div className="space-y-3 text-gray-700 dark:text-gray-300">
-        <p>
-          <span className="font-semibold text-indigo-600 dark:text-indigo-400">
-            Followers:
-          </span>{" "}
-          {profile.followers.toLocaleString()}
-        </p>
-        <p>
-          <span className="font-semibold text-indigo-600 dark:text-indigo-400">
-            Public Repositories:
-          </span>{" "}
-          {profile.public_repos}
-        </p>
+    <div className="min-h-screen flex items-center justify-center bg-gray-700">
+      <div className="mx-auto max-w-md w-full p-6 bg-slate-800 rounded-xl shadow-2xl">
+        <Image
+          src={profile.avatar_url}
+          alt="Avatar"
+          width={100}
+          height={100}
+          className="mx-auto mb-4"
+        />
+        <h1 className="text-3xl text-center font-bold text-pink-800 mb-4 border-b pb-2">
+          {profile.name || profile.login}'s GitHub Recap
+        </h1>
+        <div className="space-y-3 text-gray-700 dark:text-gray-300">
+          <p className="text-gray-300">
+            <span className="font-semibold text-indigo-500">Following:</span>{" "}
+            {profile.following.toLocaleString()}
+          </p>
+          <p className="text-gray-300">
+            <span className="font-semibold text-indigo-500">Followers:</span>{" "}
+            {profile.followers.toLocaleString()}
+          </p>
+          <p className="text-gray-300">
+            <span className="font-semibold text-indigo-500">
+              Public Repositories:
+            </span>{" "}
+            {profile.public_repos}
+          </p>
+        </div>
       </div>
     </div>
   );

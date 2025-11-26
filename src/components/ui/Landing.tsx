@@ -1,7 +1,7 @@
 "use client";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useState } from "react";
-import { useRouter } from "next/navigation"; // Import the router for client-side navigation
+import { useRouter } from "next/navigation";
 
 export default function Landing() {
   const router = useRouter();
@@ -14,6 +14,8 @@ export default function Landing() {
   async function handleUnwrap() {
     const trimmedUsername = usernameInput.trim();
     if (trimmedUsername) {
+      // leads to /recap/[username]
+      // which loads the PublicRecap component
       router.push(`/recap/${trimmedUsername}`);
     }
   }
@@ -41,7 +43,7 @@ export default function Landing() {
           className={`rounded-r-md px-6 py-3 font-semibold transition duration-150 
             ${
               isInputValid
-                ? "bg-purple-600 text-white hover:bg-purple-700 focus:ring-purple-500"
+                ? "bg-purple-600 text-white cursor-pointer hover:bg-purple-700 focus:ring-purple-500"
                 : "bg-gray-600 text-gray-400 cursor-not-allowed"
             } focus:outline-none focus:ring-2 focus:ring-offset-1 dark:focus:ring-offset-gray-900`}
           onClick={handleUnwrap}
@@ -52,7 +54,7 @@ export default function Landing() {
       </div>
 
       <button
-        className="dark:bg-gray-700 text-center text-white p-4 cursor-pointer rounded-lg shadow-md hover:bg-gray-600 transition duration-150 ease-in-out font-medium tracking-wide w-full max-w-lg"
+        className="bg-gray-700 text-center text-white p-4 cursor-pointer rounded-lg shadow-md hover:bg-gray-600 transition duration-150 ease-in-out font-medium tracking-wide w-full max-w-lg"
         onClick={handleGithubLogin}
       >
         Login with GitHub
