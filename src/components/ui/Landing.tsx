@@ -14,6 +14,8 @@ export default function Landing() {
   async function handleUnwrap() {
     const trimmedUsername = usernameInput.trim();
     if (trimmedUsername) {
+      // leads to /recap/[username]
+      // which loads the PublicRecap component
       router.push(`/recap/${trimmedUsername}`);
     }
   }

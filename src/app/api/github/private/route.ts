@@ -6,7 +6,6 @@ import axios, { AxiosError } from "axios";
 export async function GET(req: Request) {
   const session = await getServerSession(authOptions);
   const token = session?.accessToken;
-  const headers = {};
 
   if (!token) {
     return NextResponse.json(

@@ -4,6 +4,10 @@ import { useSession, signIn, signOut } from "next-auth/react";
 export default function Navbar() {
   const { data: session } = useSession();
 
+  async function handleGithubLogin() {
+    signIn("github", { callbackUrl: "/recap" });
+  }
+
   return (
     <nav className="fixed inset-x-0 p-4 z-50 top-0 bg-black backdrop-blur-md">
       <div className="flex justify-between items-center px-10">
@@ -20,7 +24,7 @@ export default function Navbar() {
           </>
         ) : (
           <button
-            onClick={() => signIn("github")}
+            onClick={handleGithubLogin}
             className="text-gray-300 hover:text-white transition cursor-pointer"
           >
             Login with GitHub
