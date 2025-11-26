@@ -1,7 +1,7 @@
 "use client";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useState } from "react";
-import { useRouter } from "next/navigation"; // Import the router for client-side navigation
+import { useRouter } from "next/navigation";
 
 export default function Landing() {
   const router = useRouter();
@@ -52,7 +52,7 @@ export default function Landing() {
       </div>
 
       <button
-        className="dark:bg-gray-700 text-center text-white p-4 cursor-pointer rounded-lg shadow-md hover:bg-gray-600 transition duration-150 ease-in-out font-medium tracking-wide w-full max-w-lg"
+        className="bg-gray-700 text-center text-white p-4 cursor-pointer rounded-lg shadow-md hover:bg-gray-600 transition duration-150 ease-in-out font-medium tracking-wide w-full max-w-lg"
         onClick={handleGithubLogin}
       >
         Login with GitHub
